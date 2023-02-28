@@ -38,6 +38,8 @@ class RenterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+     /*my comment*/
     public function store(Request $request)
     {
         // validation
