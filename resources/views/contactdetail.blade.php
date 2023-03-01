@@ -56,7 +56,8 @@
         </div>
         <div class="col-md-12">
           <div class="contact-form">
-            <form id="contact" action="{{ route('contact.submit') }}" method="post">
+            <form id="contact" action="{{ route('message.store') }}" method="post">
+@csrf
               <div class="row">
                 <div class="col-lg-4 col-md-12 col-sm-12">
                   <fieldset>

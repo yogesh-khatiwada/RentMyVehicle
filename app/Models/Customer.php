@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class Customer extends Model
 {
     use HasFactory;
-    protected $fillable = ['customerName', 'email', 'phone', 'type', 'Name', 'image'];
+    protected $fillable = ['name', 'email', 'phone', 'billbookphoto', 'citizenshipfp', 'citizenshipbp'];
     public static function getcustomerdatacount()
     {
         return DB::table('customers')->count();

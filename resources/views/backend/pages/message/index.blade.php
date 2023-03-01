@@ -5,7 +5,7 @@
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Home</a></li>
-                <li class="breadcrumb-item active">Add Customer</li>
+                <li class="breadcrumb-item active">message</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
@@ -13,8 +13,8 @@
         <div>
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Add Customer <a href="{{ route('customer.create') }}"
-                            class="btn btn-sm btn-primary">Add New</a></h5>
+                    {{-- <h5 class="card-title">Add Customer <a href="{{ route('customer.create') }}"
+                            class="btn btn-sm btn-primary">Add New</a></h5> --}}
                     <!-- Default Table -->
                     @if (session('success'))
                     <div class="alert alert-success" role="alert">
@@ -25,12 +25,11 @@
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Customer Name</th>
+                                <th scope="col">User Name</th>
                                 <th scope="col">Email-ID</th>
-                                <th scope="col">Phone Number</th>
-                                <th scope="col">BillbookPhoto</th>
-                                <th scope="col">citizenshipfp</th>
-                                <th scope="col">citizenshipbp</th>
+                                <th scope="col">Subject</th>
+                                <th scope="col">Message</th>
+                                
                                 <th scope="col">Action</th>
                                 
                             </tr>
@@ -40,24 +39,20 @@
                     </thead>
                     
         
-                    @foreach ($customers as $customer)
+                    @foreach ($messages as $message)
                     <tr>
-                                <th scope="row">{{ $customer->id }}</th>
-                                <td>{{ $customer->name }}</td>
-                                <td>{{ $customer->email }}</td>
-                                <td>{{ $customer->phone }}</td>
-                                <td>{{ $customer->billbookphoto }}</td>
-                                <td>{{ $customer->citizenshipfp }}</td>
-                                <td>{{ $customer->citizenshipbp }}</td>
-                                <td>
-                                    <img src="{{ asset($customer->image) }}" alt="" height="50px">
-                                </td>
+                               
+                                <td>{{ $message->name }}</td>
+                                <td>{{ $message->email }}</td>
+                                <td>{{ $message->subject }}</td>
+                                <td>{{ $message->message }}</td>
+                                
                                
                                 <td>
-                                    <a class="btn btn-secondary" href="{{ route('customer.edit', $customer->id) }}"
+                                    {{-- <a class="btn btn-secondary" href="{{ route('customer.edit', $customer->id) }}" --}}
 
-                                        role="button">Edit</a>
-                                        <form action="{{ route('customer.destroy', $customer->id) }}" method="POST">
+                                        {{-- role="button">Edit</a> --}}
+                                        <form action="{{ route('message.destroy', $message->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger" type="submit">Delete</button>

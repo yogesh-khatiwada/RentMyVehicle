@@ -30,6 +30,9 @@ Route::get('/about', function () {
 Route::get('/team', function () {
     return view('team');
 });
+Route::get('/regis', function () {
+    return view('regis');
+});
 Route::get('/testimonial', function () {
     return view('testimonial');
 });
@@ -49,17 +52,20 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/car/{id}/booked', [App\Http\Controllers\FrontendController::class, 'carbooked'])->name('car.booked');
 Route::post('/car/{id}', [App\Http\Controllers\BookedController::class, 'store'])->name('car.booked.store');
 });
-
-
+Route::post('/regis', [App\Http\Controllers\customerController::class, 'store'])->name('front.customer.store');
+Route::post('/contactdetail', [App\Http\Controllers\MessageController::class, 'store'])->name('message.store');
+Route::get('/contactdetail', [App\Http\Controllers\MessageController::class, 'index'])->name('message.index');
+// Route::resource('/contactdetail', App\Http\Controllers\MessageController::class);
 // Route::get('/bike', function () {
 //     return view('bike');
 // });
 Route::get('/contactdetail', function () {
     return view('contactdetail');
 
-    Route::post('/contactdetail', 'ContactdetailController@submitContactForm')->name('contact.submit');
+    // Route::post('/contactdetail', 'ContactdetailController@submitContactForm')->name('contact.submit');
     
 });
+
 
 // Route::get('/bike', [BikeController::class, 'backend.pages.bike.index']);
 // Route::post('/bike', [BikeController::class, 'store']);
@@ -92,7 +98,7 @@ Route::prefix('admin')->middleware('auth','admin')->group(function () {
     Route::resource('/renter', App\Http\Controllers\RenterController::class);
     Route::resource('/contact', App\Http\Controllers\ContactController::class);
     Route::resource('/offer', App\Http\Controllers\OfferController::class);
-    Route::resource('/user', App\Http\Controllers\UserController::class);
+    // Route::resource('/user', App\Http\Controllers\UserController::class);
     Route::resource('/booking', App\Http\Controllers\BookingController::class);
 
 

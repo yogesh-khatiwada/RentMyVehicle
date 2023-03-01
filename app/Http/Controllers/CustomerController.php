@@ -43,27 +43,46 @@ class CustomerController extends Controller
     {
          // validation
          $request->validate([
-            'customerName' => 'required|string|max:200',
+            'name' => 'required|string|max:200',
             'email' => 'required|string|',
             'phone' => 'required|numeric|',
-            'type' => 'required|string|',
-            'Name' => 'required|string|',
-            'image' => 'nullable|image|mimes:jpg,png,gif,webp,svg|max:2048',
-           
+            
+            'billbookphoto' => 'nullable|image|mimes:jpg,png,gif,webp,svg|max:2048',
+            'citizenshipfp' => 'nullable|image|mimes:jpg,png,gif,webp,svg|max:2048',
+            'citizenshipbp' => 'nullable|image|mimes:jpg,png,gif,webp,svg|max:2048',
            
         ]);
         // dd($request->all());
         $data = $request->all();
         // store image to public file
-        $data['image'] = null;
-        if ($request->hasFile('image')) { // check condition is image exists or not
-            $img = $request->file('image'); // get image file in img variable
+        $data['billbookphoto'] = null;
+        if ($request->hasFile('billbookphoto')) { // check condition is image exists or not
+            $img = $request->file('billbookphoto'); // get image file in img variable
             $img_path = 'upload/category/'; // set path to save the image
             $img_name = Str::random(3) . now()->format('Y-m-d-his') . '.' . $img->getClientOriginalExtension(); // set name with time and extention to save image
             $img->move($img_path, $img_name); // move the image file to the destination path with the name
             // pass image name to the datbase
-            $data['image'] = $img_path . $img_name;
+            $data['billbookphoto'] = $img_path . $img_name;
         }
+        $data['citizenshipfp'] = null;
+        if ($request->hasFile('citizenshipfp')) { // check condition is image exists or not
+            $img = $request->file('citizenshipfp'); // get image file in img variable
+            $img_path = 'upload/category/'; // set path to save the image
+            $img_name = Str::random(3) . now()->format('Y-m-d-his') . '.' . $img->getClientOriginalExtension(); // set name with time and extention to save image
+            $img->move($img_path, $img_name); // move the image file to the destination path with the name
+            // pass image name to the datbase
+            $data['citizenshipfp'] = $img_path . $img_name;
+        }
+        $data['citizenshipbp'] = null;
+        if ($request->hasFile('citizenshipbp')) { // check condition is image exists or not
+            $img = $request->file('citizenshipbp'); // get image file in img variable
+            $img_path = 'upload/category/'; // set path to save the image
+            $img_name = Str::random(3) . now()->format('Y-m-d-his') . '.' . $img->getClientOriginalExtension(); // set name with time and extention to save image
+            $img->move($img_path, $img_name); // move the image file to the destination path with the name
+            // pass image name to the datbase
+            $data['citizenshipbp'] = $img_path . $img_name;
+        }
+
         
         
         Customer::create($data);
@@ -91,6 +110,7 @@ class CustomerController extends Controller
     {
         $customers  = Customer::findOrFail($id);
         return view('backend.pages.customer.edit', compact('customers'));
+        
     }
 
     /**
@@ -105,26 +125,47 @@ class CustomerController extends Controller
         $customers  = Customer::findOrFail($id);
         // validation
         $request->validate([ 
-            'customerName' => 'required|string|max:200',
+            'name' => 'required|string|max:200',
             'email' => 'required|string|',
             'phone' => 'required|numeric|',
-            'type' => 'required|string|',
-            'Name' => 'required|string|',
-            'image' => 'nullable|image|mimes:jpg,png,gif,webp,svg|max:2048',
+            
+            'billbookphoto' => 'nullable|image|mimes:jpg,png,gif,webp,svg|max:2048',
+            'citizenshipfp' => 'nullable|image|mimes:jpg,png,gif,webp,svg|max:2048',
+            'citizenshipbp' => 'nullable|image|mimes:jpg,png,gif,webp,svg|max:2048',
+            
             
         ]);
-        // take request data
+        // dd($request->all());
         $data = $request->all();
         // store image to public file
-        $data['image'] = $customers->image; // set deafult category image
-        if ($request->hasFile('image')) { // check condition is image exists or not
-            $img = $request->file('image'); // get image file in img variable
-            $img_path = 'upload/car/'; // set path to save the image
+        $data['billbookphoto'] = null;
+        if ($request->hasFile('billbookphoto')) { // check condition is image exists or not
+            $img = $request->file('billbookphoto'); // get image file in img variable
+            $img_path = 'upload/category/'; // set path to save the image
             $img_name = Str::random(3) . now()->format('Y-m-d-his') . '.' . $img->getClientOriginalExtension(); // set name with time and extention to save image
             $img->move($img_path, $img_name); // move the image file to the destination path with the name
             // pass image name to the datbase
-            $data['image'] = $img_path . $img_name;
+            $data['billbookphoto'] = $img_path . $img_name;
         }
+        $data['citizenshipfp'] = null;
+        if ($request->hasFile('citizenshipfp')) { // check condition is image exists or not
+            $img = $request->file('citizenshipfp'); // get image file in img variable
+            $img_path = 'upload/category/'; // set path to save the image
+            $img_name = Str::random(3) . now()->format('Y-m-d-his') . '.' . $img->getClientOriginalExtension(); // set name with time and extention to save image
+            $img->move($img_path, $img_name); // move the image file to the destination path with the name
+            // pass image name to the datbase
+            $data['citizenshipfp'] = $img_path . $img_name;
+        }
+        $data['citizenshipbp'] = null;
+        if ($request->hasFile('citizenshipbp')) { // check condition is image exists or not
+            $img = $request->file('citizenshipbp'); // get image file in img variable
+            $img_path = 'upload/category/'; // set path to save the image
+            $img_name = Str::random(3) . now()->format('Y-m-d-his') . '.' . $img->getClientOriginalExtension(); // set name with time and extention to save image
+            $img->move($img_path, $img_name); // move the image file to the destination path with the name
+            // pass image name to the datbase
+            $data['citizenshipbp'] = $img_path . $img_name;
+        }
+
         // update category
         $customers->update($data);
         return redirect(route('customer.index'))->with('success', 'Car Updated Successfully!');

@@ -26,7 +26,7 @@
                             <label for="inputEmail3" class="col-sm-2 col-form-label">Customer Name</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control @error('customerName') is-invalid @enderror"
-                                    value="{{ $customers->customerName }}" name="customerName" id="inputText">
+                                    value="{{ $customers->name }}" name="name" id="inputText">
                                 @error('customerName')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
@@ -52,37 +52,63 @@
                                     @enderror
                                 </div>
                                 </div>
-                                
-                                    <div class="row mb-3">
-                                        <label for="inputEmail3" class="col-sm-2 col-form-label">Vehicle Type</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control @error('type') is-invalid @enderror"
-                                            value="{{ $customers->type }}"   name="type" id="inputText">
-                                            @error('type')
-                                                <small class="text-danger">{{ $message }}</small>
-                                            @enderror
-                                        </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <label for="inputEmail3" class="col-sm-2 col-form-label">Vehicle Name</label>
+                                <div class="row mb-3">
+                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Billbook Image</label>
+                                    <div class="col-sm-10">
+                                        <input type="file" class="form-control @error('billbookphoto') is-invalid @enderror"
+                                            name="billbookphoto" id="billbook-photo">
+                                        @error('billbookphoto')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputEmail3" class="col-sm-2 col-form-label">citizenship front Image</label>
+                                    <div class="col-sm-10">
+                                        <input type="file" class="form-control @error('citizenshipfp') is-invalid @enderror"
+                                            name="citizenshipfp" id="citizenshipfp">
+                                        @error('citizenshipfp')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputEmail3" class="col-sm-2 col-form-label">citizenship-b-p </label>
+                                    <div class="col-sm-10">
+                                        <input type="file" class="form-control @error('citizenshipbp') is-invalid @enderror"
+                                            name="citizenshipbp" id="citizenshipbp">
+                                        @error('citizenshipbp')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                  
+                                        <fieldset class="row mb-3">
+                                            <legend class="col-form-label col-sm-2 pt-0">Status</legend>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control @error('Name') is-invalid @enderror"
-                                                value="{{ $customers->Name }}"  name="Name" id="inputText">
-                                                @error('Name')
-                                                    <small class="text-danger">{{ $message }}</small>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" value="Accept" type="radio" name="status"
+                                                        id="status1" value="option1"
+                                                        {{ old('status') ? (old('status') == 'Accept' ? 'checked' : '') : 'checked' }}>
+                                                    <label class="form-check-label" for="status1">
+                                                        Accept
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" value="cancel" type="radio" name="status"
+                                                        id="status2" value="option2" {{ old('status') == 'cancel' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="status2">
+                                                        Cancel
+                                                    </label>
+                                                </div>
+                                                @error('status')
+                                                    <strong class="text-danger">{{ $message }}</strong>
                                                 @enderror
                                             </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <label for="inputEmail3" class="col-sm-2 col-form-label">Billbook Image</label>
-                                                <div class="col-sm-10">
-                                                    <input type="file" class="form-control @error('image') is-invalid @enderror"
-                                                        name="image" id="inputEmail">
-                                                    @error('image')
-                                                        <small class="text-danger">{{ $message }}</small>
-                                                    @enderror
-                                                </div>
-                                            </div>
+                                        </fieldset>
+                                       
+                                           
 
                                         
                         <div class="text-center">

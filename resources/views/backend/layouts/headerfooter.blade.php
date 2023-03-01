@@ -176,6 +176,13 @@
                         
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="/admin/message">
+                        <i class='bx bxs-contact' style="font-size:30px;"></i>
+                        
+                        <span>view message</span>
+                    </a>
+                </li>
             <li class="nav-item">
                 <a class="nav-link " href="/admin/contact">
                     <i class='bx bxs-contact' style="font-size:30px;"></i>
