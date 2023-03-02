@@ -28,9 +28,9 @@
                                 <th scope="col">Customer Name</th>
                                 <th scope="col">Email-ID</th>
                                 <th scope="col">Phone Number</th>
-                                <th scope="col">BillbookPhoto</th>
-                                <th scope="col">citizenshipfp</th>
-                                <th scope="col">citizenshipbp</th>
+                                <th scope="col">Billbook Photo</th>
+                                <th scope="col">citizenship Front Photo</th>
+                                <th scope="col">citizenship Back Photo</th>
                                 <th scope="col">Action</th>
                                 
                             </tr>
@@ -46,7 +46,7 @@
                                 <td>{{ $customer->name }}</td>
                                 <td>{{ $customer->email }}</td>
                                 <td>{{ $customer->phone }}</td>
-                                <td>{{ $customer->billbookphoto }}</td>
+                                <td><img src="{{ asset($customer->billbookphoto) }}" alt="" height="50px"></td>
                                 <td>{{ $customer->citizenshipfp }}</td>
                                 <td>{{ $customer->citizenshipbp }}</td>
                                 <td>
@@ -56,11 +56,11 @@
                                 <td>
                                     <a class="btn btn-secondary" href="{{ route('customer.edit', $customer->id) }}"
 
-                                        role="button">Edit</a>
+                                        role="button">Approve</a>
                                         <form action="{{ route('customer.destroy', $customer->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <button class="btn btn-danger" type="submit">Delete</button>
+                                            <button class="btn btn-danger" type="submit">Cancle</button>
                                         </form>
                                 </td>
                             </tr>

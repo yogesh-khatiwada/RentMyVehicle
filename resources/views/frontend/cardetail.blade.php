@@ -46,15 +46,35 @@
                           <small id="helpId" class="text-muted"> </small>
                         </div>
                         <div class="form-group">
-                          <label for="address">address</label>
+                          <label for="address">Temporary address</label>
                           <input type="text" name="address" id="address" class="form-control" placeholder="address" aria-describedby="helpId">
                           <small id="helpId" class="text-muted"></small>
+                        
                         </div>
+                        <div class="form-group">
+                            <label for="address">Permanent address</label>
+                            <input type="text" name="paddress" id="paddress" class="form-control" placeholder="address" aria-describedby="helpId">
+                            <small id="helpId" class="text-muted"></small>
+                          
+                          </div>
+
                         <div class="form-group">
                           <label for="resume">resume</label>
                           <input type="file" name="resume" id="resume" class="form-control" placeholder="resume" aria-describedby="helpId">
                           <small id="helpId" class="text-muted"></small>
                         </div>
+                        <div class="form-group">
+                            <label for="citizenship"> citizenship front</label>
+                            <input type="file" name="citizenship" id="citizenship" class="form-control" placeholder="resume" aria-describedby="helpId">
+                            <small id="helpId" class="text-muted"></small>
+                          </div>
+                    
+                          <div class="form-group">
+                            <label for="citizenshipb">citizenship back</label>
+                            <input type="file" name="citizenshipb" id="citizenshipb" class="form-control" placeholder="resume" aria-describedby="helpId">
+                            <small id="helpId" class="text-muted"></small>
+                          </div>
+                      
                     
                         {{-- <button type="submit" name="" id="" class="btn btn-dark btn-sm btn-block">Book Now</button> --}}
                         <button type="submit" class="btn btn-info" href="" role="button">Book Now</button>

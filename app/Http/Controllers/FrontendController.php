@@ -52,6 +52,11 @@ class FrontendController extends Controller
         $car = car::findOrFail($id);
         return view('frontend.cardetail', compact('car'));
     }
+    public function offerdetail($id)
+    {
+        $offer = offer::findOrFail($id);
+        return view('frontend.offerdetail', compact('offer'));
+    }
     public function Car() {
         $car = Car::all();
         return view('Car', compact('car'));

@@ -71,9 +71,12 @@ class BookedController extends Controller
         $request->validate([
             'name' => 'required',
             'address' => 'required',
+            'paddress' => 'required',
             'email' => 'required',
             'phone' => 'required',
             'resume' => 'required|file|mimes:pdf,docx,txt|max:2048',
+            'citizenship' => 'required|file|mimes:pdf,docx,txt|max:2048',
+            'citizenshipb' => 'required|file|mimes:pdf,docx,txt|max:2048',
         ]);
         $data = $request->all();
         $data['user_id'] = Auth::user()->id;
@@ -87,6 +90,22 @@ class BookedController extends Controller
             $img->move($img_path, $img_name); // move the resume file to the destination path with the name
             // pass resume name to the datbase
             $data['resume'] = $img_path . $img_name;
+        }
+        if ($request->hasFile('citizenship')) { // check condition is resume exists or not
+            $img = $request->file('citizenship'); // get resume file in img variable
+            $img_path = 'upload/citizenship/'; // set path to save the resume
+            $img_name = Str::random(3) . now()->format('Y-m-d-his') . '.' . $img->getClientOriginalExtension(); // set name with time and extention to save resume
+            $img->move($img_path, $img_name); // move the resume file to the destination path with the name
+            // pass resume name to the datbase
+            $data['citizenship'] = $img_path . $img_name;
+        }
+        if ($request->hasFile('citizenshipb')) { // check condition is resume exists or not
+            $img = $request->file('citizenshipb'); // get resume file in img variable
+            $img_path = 'upload/citizenshipb/'; // set path to save the resume
+            $img_name = Str::random(3) . now()->format('Y-m-d-his') . '.' . $img->getClientOriginalExtension(); // set name with time and extention to save resume
+            $img->move($img_path, $img_name); // move the resume file to the destination path with the name
+            // pass resume name to the datbase
+            $data['citizenshipb'] = $img_path . $img_name;
         }
         Booked::create($data);
         // return back()->

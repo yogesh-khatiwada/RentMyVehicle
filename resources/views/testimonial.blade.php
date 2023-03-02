@@ -24,7 +24,8 @@
           </div>
   <div class="col-md-12">
     <div class="contact-form">
-      <form id="contact" action="" method="post">
+      <form id="contact" action="{{ route('testimonial.store') }}" method="post">
+        @csrf
         <div class="row">
           <div class="col-lg-4 col-md-12 col-sm-12">
             <fieldset>
@@ -43,7 +44,7 @@
           </div>
           <div class="col-lg-12">
             <fieldset>
-              <textarea name="Testimonials" rows="6" class="form-control" id="Testimonials" placeholder="Testimonials" required=""></textarea>
+              <textarea name="testimonial" rows="6" class="form-control" id="testimonial" placeholder="Testimonials" required=""></textarea>
             </fieldset>
           </div>
           <div class="col-lg-12">

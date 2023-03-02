@@ -26,8 +26,8 @@
                 <span>Model: {{ $offer->model }} </span><br>
                 <span>Price for rent: Rs.{{ $offer->prize }} per day</span>
               </div>
-              
-              <a href="{{ route('detail',1) }}" class="filled-button">Book Now</a>
+              <a href="{{ route('offer.detail',$offer->id) }}" class="btn btn-dark">View More detail</a>
+              {{-- <a href="{{ route('detail',1) }}" class="filled-button">Book Now</a> --}}
             </div>
           </div>
 

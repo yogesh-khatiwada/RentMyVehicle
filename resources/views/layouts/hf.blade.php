@@ -67,9 +67,9 @@
                     </div>
                 </div> --}}
             @else
-                <a class="btn btn-info" href="{{ route('login') }}" role="button">Login</a>
-                <a class="btn btn-success" href="{{ route('register') }}" role="button">Register</a>
-                <a class="btn btn-success" href="/regis" role="button">Register as vendors</a>
+                <a class="btn btn-outline-primary" href="{{ route('login') }}" role="button">Login</a>
+                <a class="btn btn-outline-success" href="{{ route('register') }}" role="button">Register</a>
+                <a class="btn btn-outline-info" href="/regis" role="button">Register as vendors</a>
             @endif
               </li>
             </ul>

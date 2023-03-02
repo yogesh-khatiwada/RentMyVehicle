@@ -28,9 +28,9 @@
                         <div class="row mb-3">
                             <label for="inputEmail3" class="col-sm-2 col-form-label">Customer Name</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control @error('customerName') is-invalid @enderror"
-                                    value="{{ old('customerName') }}" name="customerName" id="inputText">
-                                @error('customerName')
+                                <input type="text" class="form-control @error('name') is-invalid @enderror"
+                                    value="{{ old('name') }}" name="name" id="inputText">
+                                @error('name')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
@@ -56,37 +56,37 @@
                                 </div>
                                 </div>
                                 
-                                    <div class="row mb-3">
-                                        <label for="inputEmail3" class="col-sm-2 col-form-label">Vehicle Type</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control @error('type') is-invalid @enderror"
-                                            value="{{ old('type') }}"   name="type" id="inputText">
-                                            @error('type')
-                                                <small class="text-danger">{{ $message }}</small>
-                                            @enderror
-                                        </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <label for="inputEmail3" class="col-sm-2 col-form-label">Vehicle Name</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control @error('Name') is-invalid @enderror"
-                                                value="{{ old('Name') }}" name="Name" id="inputText">
-                                                @error('Name')
-                                                    <small class="text-danger">{{ $message }}</small>
-                                                @enderror
-                                            </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <label for="inputEmail3" class="col-sm-2 col-form-label">Billbook Image</label>
-                                                <div class="col-sm-10">
-                                                    <input type="file" class="form-control @error('image') is-invalid @enderror"
-                                                    name="image" id="inputEmail">
-                                                @error('image')
-                                                    <small class="text-danger">{{ $message }}</small>
-                                                @enderror
-                                            </div>
-                                            </div>
-                                        
+                                <div class="row mb-3">
+                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Billbook Image</label>
+                                    <div class="col-sm-10">
+                                        <input type="file" class="form-control @error('billbookphoto') is-invalid @enderror"
+                                            name="billbookphoto" id="billbook-photo">
+                                        @error('billbookphoto')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputEmail3" class="col-sm-2 col-form-label">citizenship front Image</label>
+                                    <div class="col-sm-10">
+                                        <input type="file" class="form-control @error('citizenshipfp') is-invalid @enderror"
+                                            name="citizenshipfp" id="citizenshipfp">
+                                        @error('citizenshipfp')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputEmail3" class="col-sm-2 col-form-label">citizenship-b-p </label>
+                                    <div class="col-sm-10">
+                                        <input type="file" class="form-control @error('citizenshipbp') is-invalid @enderror"
+                                            name="citizenshipbp" id="citizenshipbp">
+                                        @error('citizenshipbp')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+                                </div>
+
                        
                         
                         <div class="text-center">

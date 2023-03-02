@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Booked extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','address','email','contact','user_id','car_id','resume'];
+    protected $fillable = ['name','address','paddress','email','contact','user_id','car_id','resume','citizenship','citizenshipb'];
 
 public function car()
 {

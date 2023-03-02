@@ -17,7 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('address')->nullable();
+            $table->string('paddress')->nullable();
             $table->string('resume')->nullable();
+            $table->string('citizenship')->nullable();
+            $table->string('citizenshipb')->nullable();
             $table->string('email')->nullable();
             $table->integer('phone')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();

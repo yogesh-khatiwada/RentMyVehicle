@@ -47,7 +47,7 @@ class MessageController extends Controller
 // dd($request->all());
 $data = $request->all();     
 Message::create($data);
-return redirect(route('message.index'))->with('success', 'Message Stored Successfully!');
+return back()->with('success', 'Message Stored Successfully!');
     }
     /**
      * Display the specified resource.

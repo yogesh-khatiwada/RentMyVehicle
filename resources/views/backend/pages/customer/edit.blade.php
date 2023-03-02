@@ -25,9 +25,9 @@
                         <div class="row mb-3">
                             <label for="inputEmail3" class="col-sm-2 col-form-label">Customer Name</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control @error('customerName') is-invalid @enderror"
+                                <input type="text" class="form-control @error('name') is-invalid @enderror"
                                     value="{{ $customers->name }}" name="name" id="inputText">
-                                @error('customerName')
+                                @error('name')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>

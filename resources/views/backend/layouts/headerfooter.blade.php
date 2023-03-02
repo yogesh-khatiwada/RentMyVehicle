@@ -169,18 +169,19 @@
                         
                     </a>
                 </li>
+               
                 <li class="nav-item">
-                    <a class="nav-link " href="/admin/contact">
-                        <i class='bx bx-message-rounded-dots' style="font-size:30px;"></i>
-                        <span>Manage Testimonials</span>
-                        
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="/admin/message">
+                    <a class="nav-link " href="{{ route('message.index') }}">
                         <i class='bx bxs-contact' style="font-size:30px;"></i>
                         
                         <span>view message</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="{{ route('testimonial.index') }}">
+                        <i class='bx bxs-contact' style="font-size:30px;"></i>
+                        
+                        <span>view Testimonial</span>
                     </a>
                 </li>
             <li class="nav-item">
@@ -216,8 +217,8 @@
               {{-- @can('admin') --}}
               <li class="nav-item">
                 <a class="nav-link " href="{{ route('user.index') }}">
-                    <i class="bi bi-grid"></i>
-                    <span>Users</span>
+                    <i class="bi bi-grid">User</i>
+                    <span></span>
                 </a>
             </li>
             {{-- @endcan --}}

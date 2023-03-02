@@ -31,7 +31,9 @@
                     <ul class="navbar-nav me-auto">
 
                     </ul>
-
+                    {{-- <a class="nav-link " href="/index">Home
+                       
+                      </a> --}}
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
