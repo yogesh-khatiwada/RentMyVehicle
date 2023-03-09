@@ -96,7 +96,12 @@ Route::prefix('admin')->middleware('auth','admin')->group(function () {
     Route::resource('/user', App\Http\Controllers\UserController::class);
     Route::resource('/booking', App\Http\Controllers\BookingController::class);
     Route::resource('/message', App\Http\Controllers\MessageController::class);
+    Route::as('admin')->group(function () {
     Route::resource('/testimonial', App\Http\Controllers\TestimonialController::class);
+
+    });
+  
+    Route::resource('/user', App\Http\Controllers\UserController::class)->middleware('admin');
 
 });
 

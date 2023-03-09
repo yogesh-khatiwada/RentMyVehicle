@@ -27,13 +27,6 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Renter Name</th>
                                 <th scope="col">E-mail</th>
-                                <th scope="col">Phone number</th>
-                                <th scope="col">Age</th>
-                                <th scope="col">Temporary Address</th>
-                                <th scope="col">Permanent Address</th>
-                                <th scope="col">certizenship photo Front</th>
-                                <th scope="col">certizenship photo Back</th>
-                                <th scope="col">licesence photo</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -41,37 +34,21 @@
                         </tr>
                     </thead>
                     
-                        @foreach ($renters as $renter)
+                        @foreach ($renters as $user)
                             <tr>
-                                <th scope="row">{{ $renter->id }}</th>
-                                <td>{{ $renter->name }}</td>
-                                <td>{{ $renter->email }}</td>
-                                <td>{{ $renter->number }}</td>
-                                <td>{{ $renter->age }}</td>
-                                <td>{{ $renter->tadd }}</td>
-                                <td>{{ $renter->padd }}</td>
-                                <td>
-                                   
-                                    <img src="{{ asset($renter->c_image) }}" alt="" height="50px">
-                                </td>
-                                <td>
-                                   
-                                    <img src="{{ asset($renter->b_image) }}" alt="" height="50px">
-                                </td>
-                                <td>
-                                    <img src="{{ asset($renter->l_image) }}" alt="" height="50px">
-                                </td>
-                                
-                                <td>
+                                <th scope="row">{{ $user->id }}</th>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->email }}</td>
+                                {{-- <td>
                                     <a class="btn btn-secondary" href="{{ route('renter.edit', $renter->id) }}"
 
                                         role="button">Edit</a>
-                                        <form action="{{ route('renter.destroy', $renter->id) }}" method="POST">
+                                        <form action="{{ route('user.destroy', $renter->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger" type="submit">Delete</button>
                                         
-                                </td>
+                                </td> --}}
                             </tr>
                         </form>
                         @endforeach

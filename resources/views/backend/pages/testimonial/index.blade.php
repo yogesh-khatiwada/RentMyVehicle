@@ -16,11 +16,9 @@
                     {{-- <h5 class="card-title">Add Customer <a href="{{ route('customer.create') }}"
                             class="btn btn-sm btn-primary">Add New</a></h5> --}}
                     <!-- Default Table -->
-                    @if (session('success'))
-                    <div class="alert alert-success" role="alert">
+                    {{-- <div class="alert alert-success" role="alert">
                         <strong>success: </strong> {{ session('success') }}
-                    </div>
-                @endif
+                    </div> --}}
                     <table class="table">
                         <thead>
                             <tr>

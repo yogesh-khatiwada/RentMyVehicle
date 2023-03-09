@@ -120,6 +120,14 @@
                   
                 </ul>
               </li>
+              {{-- @can('admin') --}}
+              <li class="nav-item">
+                  <a class="nav-link " href="{{ route('user.index') }}">
+                      <i class="bi bi-grid"></i>
+                      <span>Users</span>
+                  </a>
+              </li>
+          {{-- @endcan --}}
               <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#register-nav" data-bs-toggle="collapse" href="#">
                     <i class="bx bxs-user-plus" style="font-size:30px;"></i><span>Register User</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -214,14 +222,15 @@
                     </button>
                 </form>
             </li>
-              {{-- @can('admin') --}}
+              {{-- @can('admin')
               <li class="nav-item">
                 <a class="nav-link " href="{{ route('user.index') }}">
                     <i class="bi bi-grid">User</i>
                     <span></span>
                 </a>
-            </li>
+            </li> --}}
             {{-- @endcan --}}
+
 
         </ul>
 
