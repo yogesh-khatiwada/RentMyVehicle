@@ -179,14 +179,14 @@
                 </li>
                
                 <li class="nav-item">
-                    <a class="nav-link " href="{{ route('message.index') }}">
+                    <a class="nav-link " href="{{ route('admin.message.index') }}">
                         <i class='bx bxs-contact' style="font-size:30px;"></i>
                         
                         <span>view message</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="{{ route('testimonial.index') }}">
+                    <a class="nav-link " href="{{ route('admin.testimonial.index') }}">
                         <i class='bx bxs-contact' style="font-size:30px;"></i>
                         
                         <span>view Testimonial</span>

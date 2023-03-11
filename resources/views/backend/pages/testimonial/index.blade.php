@@ -50,7 +50,7 @@
                                     {{-- <a class="btn btn-secondary" href="{{ route('customer.edit', $customer->id) }}" --}}
 
                                         {{-- role="button">Edit</a> --}}
-                                        <form action="{{ route('testimonial.destroy', $testimonial->id) }}" method="POST">
+                                        <form action="{{ route('admin.testimonial.destroy', $testimonial->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger" type="submit">Delete</button>

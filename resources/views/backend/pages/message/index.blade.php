@@ -52,7 +52,7 @@
                                     {{-- <a class="btn btn-secondary" href="{{ route('customer.edit', $customer->id) }}" --}}
 
                                         {{-- role="button">Edit</a> --}}
-                                        <form action="{{ route('message.destroy', $message->id) }}" method="POST">
+                                        <form action="{{ route('admin.message.destroy', $message->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger" type="submit">Delete</button>

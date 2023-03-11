@@ -31,10 +31,10 @@ Route::get('/testimonial', function () {
 Route::get('/index', function () {
     return view('index');
 });
-Route::get('/Car', [FrontendController::class,'Car']);
-Route::get('/offer', [FrontendController::class,'offer']);
-Route::get('/detail/{id}', [FrontendController::class,'detail'])->name('detail')->middleware('auth');
-Route::get('/Bike', [FrontendController::class,'Bike']);
+Route::get('/Car', [FrontendController::class, 'Car']);
+Route::get('/offer', [FrontendController::class, 'offer']);
+Route::get('/detail/{id}', [FrontendController::class, 'detail'])->name('detail')->middleware('auth');
+Route::get('/Bike', [FrontendController::class, 'Bike']);
 // Route::post('/detail/{id}', [BookingController::class,'store'])->name('detail.store')->middleware('auth');
 // Route::get('/detail/finish/{id}', [FrontendController::class,'detailFinish'])->name('detail.finish')->middleware('auth');
 
@@ -43,13 +43,13 @@ Route::get('/offer/{id}', [App\Http\Controllers\FrontendController::class, 'offe
 Route::post('/offer/{id}', [App\Http\Controllers\BookedController::class, 'store'])->name('offer.booked.store');
 Route::middleware(['auth'])->group(function () {
     Route::get('/car/{id}/booked', [App\Http\Controllers\FrontendController::class, 'carbooked'])->name('car.booked');
-Route::post('/car/{id}', [App\Http\Controllers\BookedController::class, 'store'])->name('car.booked.store');
+    Route::post('/car/{id}', [App\Http\Controllers\BookedController::class, 'store'])->name('car.booked.store');
 });
 Route::post('/regis', [App\Http\Controllers\customerController::class, 'store'])->name('front.customer.store');
 Route::post('/contactdetail', [App\Http\Controllers\MessageController::class, 'store'])->name('message.store');
 Route::get('/contactdetail', [App\Http\Controllers\MessageController::class, 'index'])->name('message.index');
 Route::post('/testimonial', [App\Http\Controllers\TestimonialController::class, 'store'])->name('testimonial.store');
-Route::get('/testimonial', [App\Http\Controllers\TestimonialController::class, 'index'])->name('testimonial.index');
+Route::get('/testimonial', [App\Http\Controllers\TestimonialController::class, 'testimonial'])->name('testimonial.index');
 // Route::resource('/contactdetail', App\Http\Controllers\MessageController::class);
 // Route::get('/bike', function () {
 //     return view('bike');
@@ -58,7 +58,6 @@ Route::get('/contactdetail', function () {
     return view('contactdetail');
 
     // Route::post('/contactdetail', 'ContactdetailController@submitContactForm')->name('contact.submit');
-    
 });
 
 
@@ -78,7 +77,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::prefix('admin')->middleware('auth','admin')->group(function () {
+Route::prefix('admin')->middleware('auth', 'admin')->group(function () {
     Route::get('/', [App\Http\Controllers\AdminController::class, 'admin']);
     Route::get('/nbooking', [App\Http\Controllers\BookedController::class, 'index'])->name('bookedcar.index');
     Route::get('/cobooking', [App\Http\Controllers\BookedController::class, 'indexone'])->name('bookedcar.index');
@@ -95,20 +94,16 @@ Route::prefix('admin')->middleware('auth','admin')->group(function () {
     Route::resource('/offer', App\Http\Controllers\OfferController::class);
     Route::resource('/user', App\Http\Controllers\UserController::class);
     Route::resource('/booking', App\Http\Controllers\BookingController::class);
-    Route::resource('/message', App\Http\Controllers\MessageController::class);
-    Route::as('admin')->group(function () {
-    Route::resource('/testimonial', App\Http\Controllers\TestimonialController::class);
-
+    Route::as('admin.')->group(function () {
+        Route::resource('/message', App\Http\Controllers\MessageController::class);
+        Route::resource('/testimonial', App\Http\Controllers\TestimonialController::class);
     });
-  
-    Route::resource('/user', App\Http\Controllers\UserController::class)->middleware('admin');
 
+    Route::resource('/user', App\Http\Controllers\UserController::class)->middleware('admin');
 });
 
 Route::prefix('customer')->as('customer.')->middleware('auth')->group(function () {
     Route::get('/', [App\Http\Controllers\CusttomerController::class, 'customer']);
     Route::resource('/bike', App\Http\Controllers\CustomerbikeController::class);
     Route::resource('/car', App\Http\Controllers\CustomercarController::class);
-
 });
-

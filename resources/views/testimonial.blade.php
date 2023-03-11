@@ -24,7 +24,7 @@
           </div>
   <div class="col-md-12">
     <div class="contact-form">
-      <form id="contact" action="{{ route('testimonial.store') }}" method="post">
+      <form id="contact" action="{{ route('testimonial.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="row">
           <div class="col-lg-4 col-md-12 col-sm-12">

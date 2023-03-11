@@ -18,6 +18,11 @@ class TestimonialController extends Controller
         return view('backend.pages.testimonial.index', compact('testimonials'));
     }
 
+
+    public function testimonial()
+    {
+        return view('testimonial');
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -36,18 +41,19 @@ class TestimonialController extends Controller
      */
     public function store(Request $request)
     {
-          // validation
-          $request->validate([
+        // dd($request->all());
+        // validation
+        $request->validate([
             'name' => 'required|string|max:200',
-            'email' => 'required|string|',
-            'image' => 'required|file|',
-            'testimonial' => 'required|string|',
-    
-]);
-// dd($request->all());
-$data = $request->all();     
-Testimonial::create($data);
-return back()->with('success', 'Testimonials Stored Successfully!');
+            'email' => 'required|string',
+            'image' => 'required|file',
+            'testimonial' => 'required|string',
+
+        ]);
+        // dd($request->all());
+        $data = $request->all();
+        Testimonial::create($data);
+        return back()->with('success', 'Testimonials Stored Successfully!');
     }
 
     /**
@@ -58,7 +64,6 @@ return back()->with('success', 'Testimonials Stored Successfully!');
      */
     public function show(testimonial $testimonial)
     {
-       
     }
 
     /**
@@ -81,19 +86,19 @@ return back()->with('success', 'Testimonials Stored Successfully!');
      */
     public function update(Request $request, testimonial $testimonial)
     {
-         // validation
-         $request->validate([
+        // validation
+        $request->validate([
             'name' => 'required|string|max:200',
-            'email' => 'required|string|',
-            'image' => 'required|string|',
-            'testimonial' => 'required|string|',
-          
-]);
-    
-// dd($request->all());
-$data = $request->all(); 
-Testimonial->update($data);
-return redirect(route('testimonial.index'))->with('success', 'Testimonial Updated Successfully!');
+            'email' => 'required|string',
+            'image' => 'required|file',
+            'testimonial' => 'required|string',
+
+        ]);
+
+        // dd($request->all());
+        $data = $request->all();
+        Testimonial->update($data);
+        return redirect(route('testimonial.index'))->with('success', 'Testimonial Updated Successfully!');
     }
 
     /**
