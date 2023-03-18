@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Booked;
+use App\Models\rent;
 use Illuminate\Http\Request;
+
+
 
 use App\Models\car;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
-
-class BookedController extends Controller
+class RentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,18 +21,18 @@ class BookedController extends Controller
      */
     public function index()
     {
-        $booked = booked::where('status','pending')->get();
-        return view('backend.pages.booked.index', compact('booked'));
+        $rent = rent::where('status','pending')->get();
+        return view('backend.pages.rent.index', compact('rent'));
     }
     public function indexone()
     {
-        $booked = booked::where('status','accepted')->get();
-        return view('backend.pages.booked.index', compact('booked'));
+        $rent = rent::where('status','accepted')->get();
+        return view('backend.pages.rent.index', compact('rent'));
     }
     public function indextwo()
     {
-        $booked = booked::where('status','cancel')->get();
-        return view('backend.pages.booked.index', compact('booked'));
+        $rent = rent::where('status','cancel')->get();
+        return view('backend.pages.rent.index', compact('rent'));
     }
 
     /**
@@ -41,17 +42,17 @@ class BookedController extends Controller
      */
     public function statusUpdate($type, $id)
     {
-        $booked = booked::findOrFail($id);
+        $rent = rent::findOrFail($id);
         if ($type == 'pending') {
-            $booked->status = 'pending';
+            $rent->status = 'pending';
         } else if ($type == 'cancel') {
-            $booked->status = 'cancel';
+            $rent->status = 'cancel';
         } else if ($type == 'accepted') {
-            $booked->status = 'accepted';
+            $rent->status = 'accepted';
         } else {
-            $booked->status = 'pending';
+            $rent->status = 'pending';
         }
-        $booked->save();
+        $rent->save();
         return back()->with('success', 'updated succesfully');
     }
     public function create()
@@ -67,7 +68,6 @@ class BookedController extends Controller
      */
     public function store(Request $request, $id)
     {
-        
         $car = car::findOrFail($id);
         $request->validate([
             'name' => 'required',
@@ -108,18 +108,20 @@ class BookedController extends Controller
             // pass resume name to the datbase
             $data['citizenshipb'] = $img_path . $img_name;
         }
-        Booked::create($data);
+        rent::create($data);
         // return back()->
-        return redirect()->route('car.booked',$id)->with('success','Booked successfully!');
+        return redirect()->route('car.rent',$id)->with('success','rent successfully!');
     }
+
+    
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Booked  $booked
+     * @param  \App\Models\rent  $rent
      * @return \Illuminate\Http\Response
      */
-    public function show(Booked $booked)
+    public function show(rent $rent)
     {
         //
     }
@@ -127,10 +129,10 @@ class BookedController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Booked  $booked
+     * @param  \App\Models\rent  $rent
      * @return \Illuminate\Http\Response
      */
-    public function edit(Booked $booked)
+    public function edit(rent $rent)
     {
         //
     }
@@ -139,10 +141,10 @@ class BookedController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Booked  $booked
+     * @param  \App\Models\rent  $rent
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Booked $booked)
+    public function update(Request $request, rent $rent)
     {
         //
     }
@@ -150,10 +152,10 @@ class BookedController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Booked  $booked
+     * @param  \App\Models\rent  $rent
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Booked $booked)
+    public function destroy(rent $rent)
     {
         //
     }

@@ -19,10 +19,10 @@
                 <div class="col-md-8 col-12">
 
                     {{-- <a href="" class="btn btn-dark btn-block">Apply Now</a> --}}
-                    <h1>Book Now</h1>
+                    <h1>Rent Now</h1>
                     <hr>
                     @if (Auth::user())
-                    <form action="{{ route('car.booked.store',$car->id) }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('car.rent.store',$car->id) }}" method="post" enctype="multipart/form-data">
                         
                         @csrf
                         @foreach ($errors->all() as $error)
@@ -76,8 +76,7 @@
                           </div>
                       
                     
-                        {{-- <button type="submit" name="" id="" class="btn btn-dark btn-sm btn-block">Book Now</button> --}}
-                        <button type="submit" class="btn btn-info" href="" role="button">Book Now</button>
+                      
                  
                     </form>
                     

@@ -39,10 +39,12 @@
         
                     @foreach ($testimonials as $testimonial)
                     <tr>
-                               
-                                <td>{{ $testimonial->name }}</td>
+                         <td>{{ $testimonial->name }}</td>
                                 <td>{{ $testimonial->email }}</td>
-                                <td>{{ $testimonial->image }}</td>
+                                <td>
+                                    <img src="{{ asset($testimonial->image) }}" alt="" height="50px">
+                                </td>
+                                      
                                 <td>{{ $testimonial->testimonial }}</td>
                                 
                                
@@ -54,6 +56,7 @@
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger" type="submit">Delete</button>
+                                            <a class="btn btn-outline-primary" href="{{ route('admin.testimonial.index')}}" role="button">Post</a>
                                         </form>
                                 </td>
                             </tr>

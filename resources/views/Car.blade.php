@@ -30,6 +30,7 @@
               </div>
               
               <a href="{{ route('car.detail',$car->id) }}" class="btn btn-dark">View More detail</a>
+              <a href="{{ route('rent.detail',$car->id) }}" class="btn btn-dark">Rent</a>
             </div>
           </div>
          

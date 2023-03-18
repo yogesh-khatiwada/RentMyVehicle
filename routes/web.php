@@ -31,6 +31,12 @@ Route::get('/testimonial', function () {
 Route::get('/index', function () {
     return view('index');
 });
+//payment
+// Route::get('/adminpayment', [PaymentController::class, 'adminpayment']);
+Route::get('/payment', [PaymentController::class, 'payment']);
+
+Route::post('/khalti/payment/verify',[PaymentController::class,'verifyPayment'])->name('khalti.verifyPayment');
+Route::post('/khalti/payment/store',[PaymentController::class,'storePayment'])->name('khalti.storePayment');
 Route::get('/Car', [FrontendController::class, 'Car']);
 Route::get('/offer', [FrontendController::class, 'offer']);
 Route::get('/detail/{id}', [FrontendController::class, 'detail'])->name('detail')->middleware('auth');
@@ -39,11 +45,14 @@ Route::get('/Bike', [FrontendController::class, 'Bike']);
 // Route::get('/detail/finish/{id}', [FrontendController::class,'detailFinish'])->name('detail.finish')->middleware('auth');
 
 Route::get('/car/{id}', [App\Http\Controllers\FrontendController::class, 'cardetail'])->name('car.detail');
+Route::get('/car/{id}', [App\Http\Controllers\FrontendController::class, 'rentdetail'])->name('rent.detail');
 Route::get('/offer/{id}', [App\Http\Controllers\FrontendController::class, 'offerdetail'])->name('offer.detail');
 Route::post('/offer/{id}', [App\Http\Controllers\BookedController::class, 'store'])->name('offer.booked.store');
 Route::middleware(['auth'])->group(function () {
     Route::get('/car/{id}/booked', [App\Http\Controllers\FrontendController::class, 'carbooked'])->name('car.booked');
     Route::post('/car/{id}', [App\Http\Controllers\BookedController::class, 'store'])->name('car.booked.store');
+    Route::get('/car/{id}/rent', [App\Http\Controllers\FrontendController::class, 'carrent'])->name('car.rent');
+    Route::post('/car/{id}', [App\Http\Controllers\BookedController::class, 'store'])->name('car.rent.store');
 });
 Route::post('/regis', [App\Http\Controllers\customerController::class, 'store'])->name('front.customer.store');
 Route::post('/contactdetail', [App\Http\Controllers\MessageController::class, 'store'])->name('message.store');
@@ -83,7 +92,12 @@ Route::prefix('admin')->middleware('auth', 'admin')->group(function () {
     Route::get('/cobooking', [App\Http\Controllers\BookedController::class, 'indexone'])->name('bookedcar.index');
     Route::get('/cbooking', [App\Http\Controllers\BookedController::class, 'indextwo'])->name('bookedcar.index');
     // Route::get('/nbooking/{type}/status/{id}', [App\Http\Controllers\BookedController::class, 'index'])->name('bookedcar.index');
-    Route::get('/nbooking/{type}/status/{id}', [App\Http\Controllers\BookedController::class, 'statusUpdate'])->name('bookedcar.index.update');
+    Route::get('/nbooking/{type}/status/{id}', [App\Http\Controllers\RentController::class, 'statusUpdate'])->name('bookedcar.index.update');
+    Route::get('/nbooking', [App\Http\Controllers\RentController::class, 'index'])->name('rentcar.index');
+    Route::get('/cobooking', [App\Http\Controllers\RentController::class, 'indexone'])->name('rentcar.index');
+    Route::get('/cbooking', [App\Http\Controllers\RentController::class, 'indextwo'])->name('rentcar.index');
+    // Route::get('/nbooking/{type}/status/{id}', [App\Http\Controllers\BookedController::class, 'index'])->name('bookedcar.index');
+    Route::get('/nbooking/{type}/status/{id}', [App\Http\Controllers\RentController::class, 'statusUpdate'])->name('rentcar.index.update');
     // Route::resource('/category', App\Http\Controllers\CategoryController::class);
     Route::resource('/car', App\Http\Controllers\CarController::class);
 

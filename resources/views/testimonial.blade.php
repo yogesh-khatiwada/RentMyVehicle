@@ -57,7 +57,11 @@
     </div>
   </div>
   </diV>
-
+  @php 
+  use App\Models\testimonial;
+  $testimonials = testimonial::all();
+  @endphp
+  @foreach($testimonials as $testimonial)
   <div class="testimonials" style="margin: 0">
     <div class="container">
       <div class="row">
@@ -66,44 +70,20 @@
             
             <div class="testimonial-item">
               <div class="inner-content">
-                <h4>George Walker</h4>
-                <span>Chief Financial Analyst</span>
-                <p>"Nulla ullamcorper, ipsum vel condimentum congue, mi odio vehicula tellus, sit amet malesuada justo sem sit amet quam. Pellentesque in sagittis lacus."</p>
+                <h4>{{ $testimonial->name }}</h4>
+                <span>{{ $testimonial->email }}</span>
+                <p>{{ $testimonial->testimonial }}</p>
               </div>
-              <img src="http://placehold.it/60x60" alt="">
+              <img src="{{ asset($testimonial->image) }}" alt="">
             </div>
             
-            <div class="testimonial-item">
-              <div class="inner-content">
-                <h4>John Smith</h4>
-                <span>Market Specialist</span>
-                <p>"In eget leo ante. Sed nibh leo, laoreet accumsan euismod quis, scelerisque a nunc. Mauris accumsan, arcu id ornare malesuada, est nulla luctus nisi."</p>
-              </div>
-              <img src="http://placehold.it/60x60" alt="">
-            </div>
-            
-            <div class="testimonial-item">
-              <div class="inner-content">
-                <h4>David Wood</h4>
-                <span>Chief Accountant</span>
-                <p>"Ut ultricies maximus turpis, in sollicitudin ligula posuere vel. Donec finibus maximus neque, vitae egestas quam imperdiet nec. Proin nec mauris eu tortor consectetur tristique."</p>
-              </div>
-              <img src="http://placehold.it/60x60" alt="">
-            </div>
-            
-            <div class="testimonial-item">
-              <div class="inner-content">
-                <h4>Andrew Boom</h4>
-                <span>Marketing Head</span>
-                <p>"Curabitur sollicitudin, tortor at suscipit volutpat, nisi arcu aliquet dui, vitae semper sem turpis quis libero. Quisque vulputate lacinia nisl ac lobortis."</p>
-              </div>
-              <img src="http://placehold.it/60x60" alt="">
-            </div>
+
             
           </div>
         </div>
       </div>
     </div>
+  @endforeach
   </div>
       </div>
     </div>

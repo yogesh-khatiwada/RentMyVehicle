@@ -7,6 +7,7 @@ use App\Models\Car;
 use App\Models\Bike;
 use App\Models\offer;
 use App\Models\booked;
+use App\Models\testimonial;
 use Auth;
 
 
@@ -52,6 +53,11 @@ class FrontendController extends Controller
         $car = car::findOrFail($id);
         return view('frontend.cardetail', compact('car'));
     }
+    public function rentdetail($id)
+    {
+        $car = car::findOrFail($id);
+        return view('frontend.rentdetail', compact('car'));
+    }
     public function offerdetail($id)
     {
         $offer = offer::findOrFail($id);
@@ -77,4 +83,12 @@ class FrontendController extends Controller
         return view('bike', compact('bike'));
 
     }
+
+
+
+public function testimonial(){
+    $testimonials = testimonial::all();
+    return view('testimonial', compact('testimonials'));
+
+}
 }

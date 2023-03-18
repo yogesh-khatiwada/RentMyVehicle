@@ -44,26 +44,51 @@
                         "SCT",
                         ],
                     "eventHandler": {
-                        onSuccess (payload) {
-                            // hit merchant api for initiating verfication
-                            console.log(payload);
-                        },
-                        onError (error) {
-                            console.log(error);
-                        },
-                        onClose () {
-                            // console.log('widget is closing');
+                      onSuccess(payload) {
+                                // hit merchant api for initiating verfication
+                                $.ajax({
+                                    type: 'POST',
+                                    url: "{{ route('khalti.verifyPayment') }}",
+                                    data: {
+                                        token: payload.token,
+                                        amount: payload.amount,
+                                        "_token": "{{ csrf_token() }}"
+                                    },
+                                    success: function(res) {
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "{{ route('khalti.storePayment') }}",
+                                            data: {
+                                                response: res,
+                                                "_token": "{{ csrf_token() }}"
+                                            },
+                                            success: function(res) {
+                                                console.log('transaction successfull');
+                                            }
+                                        });
+                                        console.log(res);
+                                    }
+                                });
+                                console.log(payload);
+                            },
+                            onError(error) {
+                                console.log(error);
+                            },
+                            onClose() {
+                                console.log('widget is closing');
+                            }
                         }
+                    };
+
+                    var checkout = new KhaltiCheckout(config);
+                    var btn = document.getElementById("payment-button");
+                    btn.onclick = function() {
+                        // minimum transaction amount must be 10, i.e 1000 in paisa.
+                        checkout.show({
+                            amount: 10000
+                        });
                     }
-                };
-        
-                var checkout = new KhaltiCheckout(config);
-                var btn = document.getElementById("payment-button");
-                btn.onclick = function () {
-                    // minimum transaction amount must be 10, i.e 1000 in paisa.
-                    checkout.show({amount: 1000});
-                }
-            </script>
+                </script>
               <a href="{{ route('detail',1) }}" class="filled-button">Book Now</a>
             </div>
           </div>
