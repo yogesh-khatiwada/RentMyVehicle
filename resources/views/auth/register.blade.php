@@ -37,11 +37,6 @@
       
       <input type="submit" name="signup_submit" value="Register" />
     </div>
-   
-
-
-   
-    
   </div>
 
 @endsection

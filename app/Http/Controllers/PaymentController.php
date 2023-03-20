@@ -6,82 +6,13 @@ use Illuminate\Http\Request;
 
 class PaymentController extends Controller
 {
-   /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function payment()
-    {
-        return view('layouts.Bike.index');
-    }
-    // public function adminpayment()
-    // {
-    //     return view('admin.payment.index');
-    // }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Payment  $payment
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Payment $payment)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Payment  $payment
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Payment $payment)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Payment  $payment
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Payment $payment)
-    {
-        //
-    }
-
     public function verifyPayment(Request $request)
     {
         $token = $request->token;
 
         $args = http_build_query(array(
             'token' => $token,
-            'amount'  => 10000
+            'amount'  => 1000
         ));
 
         $url = "https://khalti.com/api/v2/payment/verify/";

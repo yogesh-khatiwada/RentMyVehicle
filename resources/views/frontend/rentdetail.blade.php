@@ -76,7 +76,7 @@
                           </div>
                       
                     
-                      
+                          <button type="submit" class="btn btn-info" href="" role="button">Rent</button> 
                  
                     </form>
                     

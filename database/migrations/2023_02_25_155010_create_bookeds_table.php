@@ -26,19 +26,9 @@ return new class extends Migration
             $table->string('cpf');
             $table->string('cpb');
             $table->string('lp');
-            $table->enum('status',['booking','rent'])->default('booking');
-            $table->timestamps();
-            $table->string('name')->nullable();
-            $table->string('address')->nullable();
-            $table->string('paddress')->nullable();
-            $table->string('resume')->nullable();
-            $table->string('citizenship')->nullable();
-            $table->string('citizenshipb')->nullable();
-            $table->string('email')->nullable();
-            $table->integer('phone')->nullable();
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->unsignedBigInteger('car_id')->nullable();
-            $table->enum('status',['pending','accepted','cancel'])->default('pending');
+            // $table->enum('status',['booking','rent'])->default('booking');
+         
+          
             $table->timestamps();
         });
     }

@@ -59,18 +59,18 @@
                           </div>
 
                         <div class="form-group">
-                          <label for="resume">resume</label>
+                          <label for="resume">Licesence Photo</label>
                           <input type="file" name="resume" id="resume" class="form-control" placeholder="resume" aria-describedby="helpId">
                           <small id="helpId" class="text-muted"></small>
                         </div>
                         <div class="form-group">
-                            <label for="citizenship"> citizenship front</label>
+                            <label for="citizenship"> Citizenship Front Photo</label>
                             <input type="file" name="citizenship" id="citizenship" class="form-control" placeholder="resume" aria-describedby="helpId">
                             <small id="helpId" class="text-muted"></small>
                           </div>
                     
                           <div class="form-group">
-                            <label for="citizenshipb">citizenship back</label>
+                            <label for="citizenshipb">Citizenship Back Photo</label>
                             <input type="file" name="citizenshipb" id="citizenshipb" class="form-control" placeholder="resume" aria-describedby="helpId">
                             <small id="helpId" class="text-muted"></small>
                           </div>

@@ -167,9 +167,31 @@
                         <i class="bx bxs-user" style="font-size:20px;"></i><span>Cancel Booking</span>
                     </a>
                   </li>
+                
                   
                   
                 </ul>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" data-bs-target="#register-nav" data-bs-toggle="collapse" href="#">
+                        <i class="bx bxs-user-plus" style="font-size:30px;"></i><span>Rent</span><i class="bi bi-chevron-down ms-auto"></i>
+                    </a>
+                    <ul id="register-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                      <li>
+                        <a href="/admin/nrent">
+                          <i class="bx bx-user" style="font-size:20px;"></i><span>New rent</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/admin/corent">
+                            <i class="bx bxs-user" style="font-size:20px;"></i><span>Confirm rent</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/admin/crent">
+                            <i class="bx bxs-user" style="font-size:20px;"></i><span>Cancel rent</span>
+                        </a>
+                      </li>
+                    </ul>
                 <li class="nav-item">
                     <a class="nav-link " href="/admin/offer">
                         <i class='bx bxs-offer' style="font-size:30px;"></i>
