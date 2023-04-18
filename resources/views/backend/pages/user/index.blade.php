@@ -39,16 +39,17 @@
                                 <tr>
                                     <th scope="row">{{ $User->id }}</th>
                                     <td>{{ $User->name }}</td>
-                                    <td><span class="badge bg-dark text-light">{{ $User->role }}</span></td>
+                                    <td><span class="badge bg-info text-light">{{ $User->role }}</span></td>
                                     <td>{{ $User->created_at }}</td>
 
                                     <td>
-                                        <a class="btn btn-dark" href="{{ route('user.edit', $User->id) }}"
-                                            role="button">Edit</a>
+                                        <a class="btn btn-secondary" href="{{ route('user.edit', $User->id) }}"
+                                            role="button"><i class='bx bx-edit'></i></a>
                                         <form action="{{ route('user.destroy', $User->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <button class="btn btn-dark" type="submit">Delete</button>
+                                            <button class="btn btn-danger" type="submit"><i
+                                                    class='bx bx-trash'></i></button>
                                         </form>
                                     </td>
                                 </tr>

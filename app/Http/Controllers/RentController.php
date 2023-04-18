@@ -21,18 +21,18 @@ class RentController extends Controller
      */
     public function index()
     {
-        $rent = rent::where('status','pending')->get();
-        return view('backend.pages.rent.index', compact('rent'));
+        $rents = rent::where('status','pending')->get();
+        return view('backend.pages.rent.index', compact('rents'));
     }
     public function indexone()
     {
-        $rent = rent::where('status','accepted')->get();
-        return view('backend.pages.rent.index', compact('rent'));
+        $rents = rent::where('status','accepted')->get();
+        return view('backend.pages.rent.index', compact('rents'));
     }
     public function indextwo()
     {
-        $rent = rent::where('status','cancel')->get();
-        return view('backend.pages.rent.index', compact('rent'));
+        $rents = rent::where('status','cancel')->get();
+        return view('backend.pages.rent.index', compact('rents'));
     }
 
     /**
@@ -78,10 +78,13 @@ class RentController extends Controller
             'resume' => 'required|file|mimes:pdf,docx,txt|max:2048',
             'citizenship' => 'required|file|mimes:pdf,docx,txt|max:2048',
             'citizenshipb' => 'required|file|mimes:pdf,docx,txt|max:2048',
+            'totalprice' => 'required',
+        
         ]);
         $data = $request->all();
         $data['user_id'] = Auth::user()->id;
         $data['car_id'] = $id;
+        $data['paymentstatus'] = 'complete';
         // store resume to public file
         $data['resume'] = null;
         if ($request->hasFile('resume')) { // check condition is resume exists or not

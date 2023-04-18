@@ -75,6 +75,7 @@ class RegisterController extends Controller
     }
     public function index()
     {
+       
         $users = User::all();
         return view('backend.pages.renter.index', compact('users'));
     }

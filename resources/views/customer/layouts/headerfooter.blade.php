@@ -15,8 +15,8 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
-   
-       
+
+
 
     <link href="{{ asset('backend/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('backend/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
@@ -28,18 +28,18 @@
     <link href="{{ asset('backend/assets/css/style.css') }}" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-   
+
 </head>
 
 <body>
 
     <!--Header-->
-    <header id="header" class="header fixed-top d-flex align-items-center">
+    <header id="header" class="header fixed-top d-flex align-items-center bg-info text-black">
 
         <div class="d-flex align-items-center justify-content-between">
             <a href="index.html" class="logo d-flex align-items-center">
                 <img src="assets/img/logo.png" alt="">
-                <span class="d-none d-lg-block">Rent My Vehicle</span>
+                <span class="d-none d-lg-block ">Rent My Vehicle</span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
@@ -64,8 +64,7 @@
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#"
                         data-bs-toggle="dropdown">
-                        <img src="{{ asset('frontend/images/yogeshg.jpg') }}" alt="Profile"
-                            class="rounded-circle">
+                        <img src="{{ asset('frontend/images/yogeshg.jpg') }}" alt="Profile" class="rounded-circle">
                         <span class="d-none d-md-block dropdown-toggle ps-2">{{ Auth::user()->name }}</span>
                     </a><!-- End Profile Iamge Icon -->
 
@@ -90,7 +89,7 @@
     </header><!-- End Header -->
 
     <!-- Sidebar -->
-    <aside id="sidebar" class="sidebar">
+    <aside id="sidebar" class="sidebar bg-info text-black">
 
         <ul class="sidebar-nav" id="sidebar-nav">
 
@@ -101,27 +100,29 @@
                 </a>
             </li>
 
-            
+
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#vehicle-nav" data-bs-toggle="collapse" href="#">
-                    <i class="bx bx-car" style="font-size:30px;"> <i class="bx bx-cycling" style="font-size:30px;"></i></i><span>Vehicle</span><i class="bi bi-chevron-down ms-auto"></i>
+                    <i class="bx bx-car" style="font-size:30px;"> <i class="bx bx-cycling"
+                            style="font-size:30px;"></i></i><span>Vehicle</span><i
+                        class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="vehicle-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                 
-                  <li>
-                    <a href="/customer/bike">
-                        <i class="bx bx-cycling" style="font-size:20px;"></i><span>Add Bike</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/customer/car">
-                        <i class="bx bx-cycling" style="font-size:20px;"></i><span>Add Car</span>
-                    </a>
-                  </li>
+
+                    <li>
+                        <a href="/customer/bike">
+                            <i class="bx bx-cycling" style="font-size:20px;"></i><span>Add Bike</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/customer/car">
+                            <i class="bx bx-cycling" style="font-size:20px;"></i><span>Add Car</span>
+                        </a>
+                    </li>
                 </ul>
-              </li>
-              
-           
+            </li>
+
+
             <li>
                 <form id="nav-item" action="{{ route('logout') }}" method="POST">
                     @csrf
@@ -132,13 +133,13 @@
                 </form>
             </li>
             @can('admin')
-            <li class="nav-item">
-                <a class="nav-link " href="{{ route('user.index') }}">
-                    <i class="bi bi-grid"></i>
-                    <span>Users</span>
-                </a>
-            </li>
-        @endcan
+                <li class="nav-item">
+                    <a class="nav-link " href="{{ route('user.index') }}">
+                        <i class="bi bi-grid"></i>
+                        <span>Users</span>
+                    </a>
+                </li>
+            @endcan
 
         </ul>
 
@@ -157,8 +158,8 @@
             Copyright &copy; 2023 Rent My Vehicle
         </div>
         <div class="credits">
-           
-           <a href=""></a>
+
+            <a href=""></a>
         </div>
     </footer><!-- End Footer -->
 

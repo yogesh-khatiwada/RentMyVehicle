@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Booked;
 use Illuminate\Http\Request;
-
 use App\Models\car;
-
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
@@ -20,18 +18,18 @@ class BookedController extends Controller
      */
     public function index()
     {
-        $booked = booked::where('status','pending')->get();
-        return view('backend.pages.booked.index', compact('booked'));
+        $bookeds = booked::where('status','pending')->get();
+        return view('backend.pages.booked.index', compact('bookeds'));
     }
     public function indexone()
     {
-        $booked = booked::where('status','accepted')->get();
-        return view('backend.pages.booked.index', compact('booked'));
+        $bookeds = booked::where('status','accepted')->get();
+        return view('backend.pages.booked.index', compact('bookeds'));
     }
     public function indextwo()
     {
-        $booked = booked::where('status','cancel')->get();
-        return view('backend.pages.booked.index', compact('booked'));
+        $bookeds = booked::where('status','cancel')->get();
+        return view('backend.pages.booked.index', compact('bookeds'));
     }
 
     /**
@@ -75,22 +73,22 @@ class BookedController extends Controller
             'paddress' => 'required',
             'email' => 'required',
             'phone' => 'required',
-            'resume' => 'required|file|mimes:pdf,docx,txt|max:2048',
+            'LicesencePhoto' => 'required|file|mimes:pdf,docx,txt|max:2048',
             'citizenship' => 'required|file|mimes:pdf,docx,txt|max:2048',
             'citizenshipb' => 'required|file|mimes:pdf,docx,txt|max:2048',
         ]);
         $data = $request->all();
         $data['user_id'] = Auth::user()->id;
         $data['car_id'] = $id;
-        // store resume to public file
-        $data['resume'] = null;
-        if ($request->hasFile('resume')) { // check condition is resume exists or not
-            $img = $request->file('resume'); // get resume file in img variable
-            $img_path = 'upload/resume/'; // set path to save the resume
+        // store LicesencePhoto to public file
+        $data['LicesencePhoto'] = null;
+        if ($request->hasFile('LicesencePhoto')) { // check condition is LicesencePhoto exists or not
+            $img = $request->file('LicesencePhoto'); // get LicesencePhoto file in img variable
+            $img_path = 'upload/LicesencePhoto/'; // set path to save the LicesencePhoto
             $img_name = Str::random(3) . now()->format('Y-m-d-his') . '.' . $img->getClientOriginalExtension(); // set name with time and extention to save resume
-            $img->move($img_path, $img_name); // move the resume file to the destination path with the name
-            // pass resume name to the datbase
-            $data['resume'] = $img_path . $img_name;
+            $img->move($img_path, $img_name); // move the LicesencePhoto file to the destination path with the name
+            // pass LicesencePhoto name to the datbase
+            $data['LicesencePhoto'] = $img_path . $img_name;
         }
         if ($request->hasFile('citizenship')) { // check condition is resume exists or not
             $img = $request->file('citizenship'); // get resume file in img variable

@@ -12,30 +12,48 @@
             </div>
         </div>
     </div>
+    <div>
+        <form action="">
 
-    <div class="services">
-        <div class="container">
-            <div class="row">
-                @foreach ($bike as $bike)
-                    <div class="col-md-4">
-                        <div class="service-item">
-                            <img src="{{ asset($bike->image) }} " alt="">
-                            <div class="down-content">
-                                <h4>Bike Name: {{ $bike->bikeName }}</h4>
-                                <div style="margin-bottom:10px;">
-                                    <span>Model: {{ $bike->model }} </span><br>
-                                    Price for rent: Rs.{{ $bike->prize }} per day.</span>
+            <div>
+                <h1 class="text-center">List of available Bike.</h1>
+            </div>
+            <p class="text-center">Here, you can search available bike as per your required.</p>
+            <div class="search-container">
+                <input type="text" name="searchbike" placeholder="Search..." class="search-input">
+                <a href="#" class="search-btn">
+                    <i class="fas fa-search"></i>
+                </a>
+            </div>
+        </form>
+        <div class="services">
+            <div class="container">
+                <div class="row">
+                    @foreach ($bike as $bike)
+                        <div class="col-md-4">
+                            <div class="service-item">
+                                <img src="{{ asset($bike->image) }} " alt="">
+                                <div class="down-content">
+                                    <h4>Bike Name: {{ $bike->bikeName }}</h4>
+                                    <div style="margin-bottom:10px;">
+                                        <span>Model: {{ $bike->model }} </span><br>
+                                        Price for rent: Rs.{{ $bike->prize }} per day.</span>
+                                        <div>
+                                            <br>
+
+                                            <a href="{{ route('car.detail', $bike->id) }}" class="btn btn-dark">Book Now</a>
+                                            &nbsp;
+                                            &nbsp; &nbsp;
+                                            <a href="{{ route('rent.detail', $bike->id) }}" class="btn btn-dark">Rent
+                                                Now</a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <button id="payment-button">Pay with Khalti</button>
-                                <a href="{{ route('detail', 1) }}" class="filled-button">Book Now</a>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-                <br>
+                    @endforeach
+                    <br>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 
     </div>
@@ -65,7 +83,7 @@
     <br>
     <br>
     </div>
-
+    <script src="https://khalti.s3.ap-south-1.amazonaws.com/KPG/dist/2020.12.17.0.0.0/khalti-checkout.iffe.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script>

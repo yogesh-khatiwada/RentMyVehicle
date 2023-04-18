@@ -23,8 +23,8 @@
                     <hr>
                     <ul class="list-group">
                         <li class="list-group-item ">Name: {{ $booked->name }}</li>
-                        <li class="list-group-item ">Address: {{ $booked->address }}</li>
-                        <li class="list-group-item ">Address: {{ $booked->paddress }}</li>
+                        <li class="list-group-item ">Permanent Address: {{ $booked->paddress }}</li>
+                        <li class="list-group-item ">Temporary Address: {{ $booked->address }}</li>
                         <li class="list-group-item ">Phone: {{ $booked->phone }}</li>
                         <li class="list-group-item ">Email: {{ $booked->email }}</li>
                         <li class="list-group-item ">Licesence: <a href="{{ asset($booked->resume) }}" target="_blank">Licesence View <i class="fa fa-eye" aria-hidden="true"></i></a></li>

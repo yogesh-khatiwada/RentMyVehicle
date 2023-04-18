@@ -14,9 +14,17 @@ class CarController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $cars = Car::all();
+        
+        $cars = Car::query();
+        if ($request->search ) {
+            $cars = $cars->where('carName','like','%'.$request->search.'%');
+        }
+        // current month
+        // $from = Carbon::now()->startOfMonth();
+        // $to = Carbon::now();
+        $cars = $cars->get();
         $countdata = new Car();
         $data = $countdata->getdatacount();
         // $count = DB::table('Car')->count();

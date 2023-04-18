@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;
-
+use Illuminate\Support\Facades\Auth as FacadesAuth;
 
 class LoginController extends Controller
 {
@@ -31,11 +31,11 @@ class LoginController extends Controller
     // protected $redirectTo = RouteServiceProvider::HOME;
     protected function redirectTo()
     {
-        if (Auth::user()->role == 'admin') {
+        if (FacadesAuth::user()->role == 'admin') {
             return RouteServiceProvider::HOME;
-        } elseif (Auth::user()->role == 'customer') {
+        } elseif (FacadesAuth::user()->role == 'customer') {
             return RouteServiceProvider::CUSTOMER;
-        } elseif (Auth::user()->role == 'user') {
+        } elseif (FacadesAuth::user()->role == 'user') {
             return RouteServiceProvider::USER;
         }
     }

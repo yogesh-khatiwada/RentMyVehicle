@@ -8,12 +8,12 @@
             <div class="row">
                 <div class="col-md-4 col-12">
                     <img src="{{ asset($car->image) }}" alt="" width="100%">
-                   
+
                     <h5> Car Name: <span>{{ $car->carName }}</span></h5>
 
                     <div style="margin-bottom:10px;">
-                <span>Car Model: {{ $car->model }} </span><br>
-                 Price for rent: RS.<span>{{ $car->prize }} per day</span>
+                        <span>Car Model: {{ $car->model }} </span><br>
+                        Price for rent: RS.<span>{{ $car->prize }} per day</span>
                     </div>
                 </div>
                 <div class="col-md-8 col-12">
@@ -22,65 +22,74 @@
                     <h1>Book Now</h1>
                     <hr>
                     @if (Auth::user())
-                    <form action="{{ route('car.booked.store',$car->id) }}" method="post" enctype="multipart/form-data">
-                        
-                        @csrf
-                        @foreach ($errors->all() as $error)
-                            <div class="alert alert-danger" role="alert">
-                                <strong>Error: </strong> {{ $error }}
-                            </div>
-                        @endforeach
-                        <div class="form-group">
-                          <label for="name">Name</label>
-                          <input type="text" name="name" id="name" class="form-control" placeholder="name" aria-describedby="helpId">
-                          <small id="helpId" class="text-muted"></small>
-                        </div>
-                        <div class="form-group">
-                          <label for="email">email</label>
-                          <input type="email" name="email" id="email" class="form-control" placeholder="email" aria-describedby="helpId">
-                          <small id="helpId" class="text-muted"></small>
-                        </div>
-                        <div class="form-group">
-                          <label for="phone">phone</label>
-                          <input type="number" name="phone" id="phone" class="form-control" placeholder="phone" aria-describedby="helpId">
-                          <small id="helpId" class="text-muted"> </small>
-                        </div>
-                        <div class="form-group">
-                          <label for="address">Temporary address</label>
-                          <input type="text" name="address" id="address" class="form-control" placeholder="address" aria-describedby="helpId">
-                          <small id="helpId" class="text-muted"></small>
-                        
-                        </div>
-                        <div class="form-group">
-                            <label for="address">Permanent address</label>
-                            <input type="text" name="paddress" id="paddress" class="form-control" placeholder="address" aria-describedby="helpId">
-                            <small id="helpId" class="text-muted"></small>
-                          
-                          </div>
+                        <form action="{{ route('car.booked.store', $car->id) }}" method="post" enctype="multipart/form-data">
 
-                        <div class="form-group">
-                          <label for="resume">Licesence Photo</label>
-                          <input type="file" name="resume" id="resume" class="form-control" placeholder="resume" aria-describedby="helpId">
-                          <small id="helpId" class="text-muted"></small>
-                        </div>
-                        <div class="form-group">
-                            <label for="citizenship"> Citizenship Front Photo</label>
-                            <input type="file" name="citizenship" id="citizenship" class="form-control" placeholder="resume" aria-describedby="helpId">
-                            <small id="helpId" class="text-muted"></small>
-                          </div>
-                    
-                          <div class="form-group">
-                            <label for="citizenshipb">Citizenship Back Photo</label>
-                            <input type="file" name="citizenshipb" id="citizenshipb" class="form-control" placeholder="resume" aria-describedby="helpId">
-                            <small id="helpId" class="text-muted"></small>
-                          </div>
-                      
-                    
-                        {{-- <button type="submit" name="" id="" class="btn btn-dark btn-sm btn-block">Book Now</button> --}}
-                        <button type="submit" class="btn btn-info" href="" role="button">Book Now</button>
-                 
-                    </form>
-                    
+                            @csrf
+                            @foreach ($errors->all() as $error)
+                                <div class="alert alert-danger" role="alert">
+                                    <strong>Error: </strong> {{ $error }}
+                                </div>
+                            @endforeach
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" name="name" id="name" class="form-control" placeholder="name"
+                                    aria-describedby="helpId">
+                                <small id="helpId" class="text-muted"></small>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">email</label>
+                                <input type="email" name="email" id="email" class="form-control" placeholder="email"
+                                    aria-describedby="helpId">
+                                <small id="helpId" class="text-muted"></small>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">phone</label>
+                                <input type="number" name="phone" id="phone" class="form-control" placeholder="phone"
+                                    aria-describedby="helpId">
+                                <small id="helpId" class="text-muted"> </small>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Temporary address</label>
+                                <input type="text" name="address" id="address" class="form-control"
+                                    placeholder="address" aria-describedby="helpId">
+                                <small id="helpId" class="text-muted"></small>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Permanent address</label>
+                                <input type="text" name="paddress" id="paddress" class="form-control"
+                                    placeholder="address" aria-describedby="helpId">
+                                <small id="helpId" class="text-muted"></small>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="LicesencePhoto">Licesence Photo</label>
+                                <input type="file" name="LicesencePhoto" id="LicesencePhoto" class="form-control"
+                                    placeholder="Licesence Photo" aria-describedby="helpId">
+                                <small id="helpId" class="text-muted"></small>
+                            </div>
+                            <div class="form-group">
+                                <label for="citizenship"> Citizenship Front Photo</label>
+                                <input type="file" name="citizenship" id="citizenship" class="form-control"
+                                    placeholder="Citizenship Front Photo" aria-describedby="helpId">
+                                <small id="helpId" class="text-muted"></small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="citizenshipb">Citizenship Back Photo</label>
+                                <input type="file" name="citizenshipb" id="citizenshipb" class="form-control"
+                                    placeholder="Citizenship Back Photo" aria-describedby="helpId">
+                                <small id="helpId" class="text-muted"></small>
+                            </div>
+
+
+                            {{-- <button type="submit" name="" id="" class="btn btn-dark btn-sm btn-block">Book Now</button> --}}
+                            <button type="submit" class="btn btn-info" href="" role="button">Book Now</button>
+                            <br>
+                            <br>
+
+                        </form>
                     @else
                         <div class="jumbotron">
                             <h4>Login first for booking a vehicle.</h4>

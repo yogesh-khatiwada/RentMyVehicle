@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('cpf');
             $table->string('cpb');
             $table->string('lp');
-            // $table->enum('status',['booking','rent'])->default('booking');
+            $table->enum('status',['booking','rent'])->default('booking');
          
           
             $table->timestamps();

@@ -31,41 +31,54 @@
                                 <th scope="col">Address</th>
                                 <th scope="col">Contact</th>
                                 <th scope="col">Email</th>
-                                <th scope="col">Resume</th>
-                                <th scope="col">Job</th>
+                                <th scope="col">Vehicle Name</th>
+                                <th scope="col">LicesencePhoto</th>
+                                <th scope="col">Citizenship Front Photo</th>
+                                <th scope="col">Citizenship Back Photo</th>
+
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($booked as $booked)
+                            @foreach ($bookeds as $booked)
+                                {{-- {{ dd($bookeds) }} --}}
                                 <tr>
                                     <th scope="row">{{ $booked->id }}</th>
                                     <td>{{ $booked->name }} <span class="badge bg-dark">{{ $booked->status }}</span></td>
                                     <td>{{ $booked->address }}</td>
-                                    <td>{{ $booked->contact }}</td>
+                                    <td>{{ $booked->phone }}</td>
                                     <td>{{ $booked->email }}</td>
+                                    <td>
+                                        <span class="">{{ $booked->car ? $booked->car->carName : '' }}</span>
+                                    </td>
                                     {{-- <a class="btn btn-info" href="{{ asset($booked->resume) }}" target="_blank"> --}}
-                                        {{-- <i class="fa fa-eye" aria-hidden="true"></i> View</a> --}}
+                                    {{-- <i class="fa fa-eye" aria-hidden="true"></i> View</a> --}}
                                     <td>
-                                        <a class="btn btn-info" href="{{ asset($booked->resume) }}" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i> View</a>
+                                        <a class="btn btn-info" href="{{ asset($booked->LicesencePhoto) }}"
+                                            target="_blank"><i class="fa fa-eye" aria-hidden="true"></i> View</a>
                                     </td>
                                     <td>
-                                        <span class="badge bg-dark">{{ $booked->car ? $booked->car->title : '' }}</span>
+                                        <a class="btn btn-info" href="{{ asset($booked->citizenship) }}" target="_blank"><i
+                                                class="fa fa-eye" aria-hidden="true"></i> View</a>
                                     </td>
+                                    <td>
+                                        <a class="btn btn-info" href="{{ asset($booked->citizenshib) }}" target="_blank"><i
+                                                class="fa fa-eye" aria-hidden="true"></i> View</a>
+                                    </td>
+
                                     <td>
                                         @if ($booked->status == 'accepted')
-                                        <a class="btn btn-danger"
-                                            href="{{ route('bookedcar.index.update', ['type' => 'cancel', 'id' => $booked->id]) }}">Cancel</a>
-                                    @else
-                                        {{-- <a class="btn btn-info"
+                                            <a class="btn btn-danger"
+                                                href="{{ route('bookedcar.index.update', ['type' => 'cancel', 'id' => $booked->id]) }}">Cancel</a>
+                                        @else
+                                            {{-- <a class="btn btn-info"
                                         href="{{ route('applyjob.index.update', ['type' => 'pending', 'id' => $apply->id]) }}">Pending</a> --}}
-                                        <a class="btn btn-dark"
-                                            href="{{ route('bookedcar.index.update', ['type' => 'accepted', 'id' => $booked->id]) }}">Accepted</a>
-                                        <a class="btn btn-danger"
-                                            href="{{ route('bookedcar.index.update', ['type' => 'cancel', 'id' => $booked->id]) }}">Cancel</a>
-                                    @endif
+                                            <a class="btn btn-dark"
+                                                href="{{ route('bookedcar.index.update', ['type' => 'accepted', 'id' => $booked->id]) }}">Accepted</a>
+                                            <a class="btn btn-danger"
+                                                href="{{ route('bookedcar.index.update', ['type' => 'cancel', 'id' => $booked->id]) }}">Cancel</a>
+                                        @endif
                                 </tr>
-                              
                             @endforeach
                         </tbody>
                     </table>
